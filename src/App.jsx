@@ -101,7 +101,7 @@ const App = () => {
             textAlign: 'center',
           }}
         >
-          河南外服-科技中心 ©{new Date().getFullYear()}
+          科技中心 ©{new Date().getFullYear()}
         </Footer>
       </Layout>
     </Layout>
