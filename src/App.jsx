@@ -88,7 +88,7 @@ const App = () => {
           <div
             style={{
               padding: 24,
-              minHeight: 600,
+              minHeight: 800,
               background: colorBgContainer,
               borderRadius: borderRadiusLG,
             }}

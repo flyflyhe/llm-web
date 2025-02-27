@@ -5,7 +5,7 @@ import {
 import { Breadcrumb, Layout, Menu, theme, Input, Button, message } from 'antd';
 import { XStream } from '@ant-design/x';
 
-import {useXChat, Bubble, Sender, useXAgent, XRequest } from '@ant-design/x';
+import { useXChat, Bubble, Sender, useXAgent, XRequest } from '@ant-design/x';
 
 
 
@@ -37,12 +37,12 @@ const roles = {
   },
 };
 
-const reqRef = {request_id : 0}
+const reqRef = { request_id: 0 }
 
 
 const messageHistory = {}
 
-const Chat = ({requestId}) => {
+const Chat = ({ requestId }) => {
 
   const [value, setValue] = useState('');
 
@@ -124,13 +124,19 @@ const Chat = ({requestId}) => {
   }));
 
   return (
-    <div>
+    <div style={{
+      position: 'relative', // 设置父容器为相对定位
+      height: '80vh', // 父容器高度占满整个视口
+    }}>
       <Bubble.List items={chatItems} roles={roles} style={{
         maxHeight: '68vh',
       }} />
 
       <div style={{
-
+        position: 'absolute', // 设置 Sender 为绝对定位
+        bottom: 40, // 固定在底部
+        left: 0, // 左右居中或全宽
+        right: 0,
       }}>
         <Sender onSubmit={onRequest} value={value} onChange={(v) => {
           setValue(v);
