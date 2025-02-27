@@ -44,9 +44,11 @@ const messageHistory = {}
 
 const Chat = ({requestId}) => {
 
+  const [value, setValue] = useState('');
+
   const [agent] = useXAgent({
     request: async (info, { onSuccess, onUpdate }) => {
-
+      setValue('')
       console.log("info-----", info)
       const { messages, message } = info
       let response = await myFetch(message, reqRef.request_id)
@@ -130,7 +132,9 @@ const Chat = ({requestId}) => {
       <div style={{
 
       }}>
-        <Sender onSubmit={onRequest}></Sender>
+        <Sender onSubmit={onRequest} value={value} onChange={(v) => {
+          setValue(v);
+        }}></Sender>
       </div>
     </div>
   );
